@@ -12,13 +12,16 @@ import App from './App';
 import { AuthProvider } from './lib/auth';
 import { ToastProvider } from './components/ui';
 import { configured } from './lib/supabase';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const tree = (
+  <ErrorBoundary>
   <BrowserRouter>
     <ToastProvider>
       {configured ? <AuthProvider><App /></AuthProvider> : <App />}
     </ToastProvider>
   </BrowserRouter>
+  </ErrorBoundary>
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(<React.StrictMode>{tree}</React.StrictMode>);

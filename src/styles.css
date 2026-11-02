@@ -105,8 +105,7 @@ img { max-width: 100%; }
 .shell { min-height: 100vh; min-height: 100dvh; }
 .topbar {
   position: sticky; top: 0; z-index: 20;
-  background: rgba(11, 10, 9, 0.88);
-  backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px);
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
   padding-top: env(safe-area-inset-top, 0px);
 }
@@ -121,8 +120,7 @@ img { max-width: 100%; }
 }
 .tabbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
-  background: rgba(15, 13, 11, 0.94);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: #0f0d0b;
   border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px);
@@ -138,6 +136,8 @@ img { max-width: 100%; }
 }
 .icon-btn svg { width: 20px; height: 20px; }
 
+.crash { max-width: 440px; margin: 0 auto; padding: calc(48px + env(safe-area-inset-top, 0px)) 20px 40px; display: flex; flex-direction: column; gap: 16px; }
+.crash pre { white-space: pre-wrap; word-break: break-word; font-size: 0.78rem; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin: 0; }
 .splash { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
 
 /* ---------- Login ---------- */
