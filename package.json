@@ -1,0 +1,28 @@
+{
+  "name": "justnails-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "icons": "python3 scripts/make_icons.py",
+    "test:db": "node supabase/test/db.test.mjs supabase/migrations/0001_init.sql"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "5.3.0",
+    "@fontsource/great-vibes": "5.3.0",
+    "@fontsource/jost": "5.3.0",
+    "@supabase/supabase-js": "2.118.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.30.6"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "@vitejs/plugin-react": "5.2.0",
+    "vite": "7.3.7",
+    "vite-plugin-pwa": "2.0.0"
+  }
+}
