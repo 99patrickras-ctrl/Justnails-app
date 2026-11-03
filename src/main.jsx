@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 import '@fontsource/great-vibes/400.css';
 import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/cormorant-garamond/600.css';
@@ -14,11 +14,17 @@ import { ToastProvider } from './components/ui';
 import { configured } from './lib/supabase';
 import ErrorBoundary from './components/ErrorBoundary';
 
+// Nulstiller fejlskærmen, når man skifter side
+function RouteBoundary({ children }) {
+  const { pathname } = useLocation();
+  return <ErrorBoundary key={pathname}>{children}</ErrorBoundary>;
+}
+
 const tree = (
   <ErrorBoundary>
   <BrowserRouter>
     <ToastProvider>
-      {configured ? <AuthProvider><App /></AuthProvider> : <App />}
+      {configured ? <AuthProvider><RouteBoundary><App /></RouteBoundary></AuthProvider> : <App />}
     </ToastProvider>
   </BrowserRouter>
   </ErrorBoundary>

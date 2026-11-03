@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  // Midlertidigt uden minificering, så fejlbeskeder viser rigtige funktionsnavne
+  build: { minify: false, sourcemap: true },
   plugins: [
     react(),
     VitePWA({

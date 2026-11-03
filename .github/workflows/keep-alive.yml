@@ -1,6 +1,6 @@
 # Supabase sætter gratis projekter på pause efter en uge uden aktivitet.
 # Denne lille opgave kalder databasen én gang om dagen, så det aldrig sker.
-# Kræver to secrets i GitHub: SUPABASE_URL og SUPABASE_KEY (se docs/OPSAETNING.md, trin 9).
+# Bruger projektets offentlige adresse og publishable key (de ligger også i selve appen, så de er ikke hemmelige).
 name: Hold databasen vågen
 
 on:
@@ -15,6 +15,6 @@ jobs:
       - name: Kald Supabase
         run: |
           curl --fail --silent --show-error \
-            "${{ secrets.SUPABASE_URL }}/rest/v1/settings?select=id" \
-            -H "apikey: ${{ secrets.SUPABASE_KEY }}" > /dev/null
+            "https://ebaadbcesarxqjqhcrem.supabase.co/rest/v1/settings?select=id" \
+            -H "apikey: sb_publishable_FgMRhFNB_ybKnS3pAdjdog__UzKL4fM" > /dev/null
           echo "Databasen svarede"

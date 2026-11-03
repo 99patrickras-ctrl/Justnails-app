@@ -21,7 +21,8 @@ export default class ErrorBoundary extends Component {
   render() {
     const { error } = this.state;
     if (!error) return this.props.children;
-    const detail = `${error?.name || 'Error'}: ${error?.message || String(error)}\n${location.pathname}\n${navigator.userAgent}`;
+    const stack = String(error?.stack || '').split('\n').slice(1, 7).map((l) => l.trim().replace(/https?:\/\/[^/]+/g, '')).join('\n');
+    const detail = `${error?.name || 'Error'}: ${error?.message || String(error)}\n${location.pathname}\n${stack}\n${navigator.userAgent}`;
     return (
       <div className="crash">
         <h2>Noget gik galt</h2>
