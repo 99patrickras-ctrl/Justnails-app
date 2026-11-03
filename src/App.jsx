@@ -33,7 +33,11 @@ const CUSTOMER_TABS = [
 
 function ScrollTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  // Krøllede parenteser er vigtige: nyere Chrome lader scrollTo returnere et Promise,
+  // og React ville så prøve at kalde det som oprydningsfunktion (gav "a is not a function").
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 
